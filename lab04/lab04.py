@@ -11,6 +11,13 @@ def reverse_iter(lst):
     >>> print("Do not use lst[::-1], lst.reverse(), or reversed(lst)!") if any([r in cleaned for r in ["[::", ".reverse", "reversed"]]) else None
     """
     "*** YOUR CODE HERE ***"
+    # could be better, not change original
+    for i in range(len(lst) // 2):
+        tmp = lst[i]
+        lst[i] = lst[len(lst) - 1 - i]
+        lst[len(lst) - 1 - i] = tmp
+    return lst
+
 
 
 def reverse_recursive(lst):
@@ -23,6 +30,10 @@ def reverse_recursive(lst):
     >>> print("Do not use lst[::-1], lst.reverse(), or reversed(lst)!") if any([r in cleaned for r in ["[::", ".reverse", "reversed"]]) else None
     """
     "*** YOUR CODE HERE ***"
+    if len(lst) == 0:
+        return []
+    else:
+        return reverse_recursive(lst[1:]) + [lst[0]]
 
 
 from math import sqrt
