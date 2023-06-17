@@ -49,6 +49,9 @@ def distance(city_a, city_b):
     5.0
     """
     "*** YOUR CODE HERE ***"
+    x1, y1 = get_lat(city_a), get_lon(city_a)
+    x2, y2 = get_lat(city_b), get_lon(city_b)
+    return sqrt((x2 - x1)**2 + (y2 - y1)**2)
 
 def closer_city(lat, lon, city_a, city_b):
     """
@@ -65,6 +68,15 @@ def closer_city(lat, lon, city_a, city_b):
     'Bucharest'
     """
     "*** YOUR CODE HERE ***"
+    x1, y1 = get_lat(city_a), get_lon(city_a)
+    x2, y2 = get_lat(city_b), get_lon(city_b)
+    A_distance = sqrt( (x1 - lat) ** 2 + (y1 - lon) ** 2 )
+    B_distance = sqrt( (x2 - lat) ** 2 + (y2 - lon) ** 2 )
+    if city_a and city_b:
+        if A_distance < B_distance:
+            return get_name(city_a)
+        else:
+            return get_name(city_b)
 
 def check_abstraction():
     """
