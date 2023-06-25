@@ -33,4 +33,9 @@ def make_generators_generator(g):
     9
     """
     "*** YOUR CODE HERE ***"
+    generator = g()  # 调用生成器函数 g，获取初始的生成器
+    items = []  # 存储每个生成器的元素
+    for item in generator:
+        items.append(item)  # 将当前元素添加到列表中
+        yield iter(items)  # 返回当前生成器的一个迭代器
 
